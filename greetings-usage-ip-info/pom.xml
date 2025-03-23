@@ -17,6 +17,60 @@
       <version>3.0.2</version>
       <scope>compile</scope>
     </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${com.fasterxml.jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
+      <version>${com.fasterxml.jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.snakeyaml</groupId>
+      <artifactId>snakeyaml-engine</artifactId>
+      <version>${snakeyaml-engine.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.entur.jackson</groupId>
+      <artifactId>jackson-syntax-highlight</artifactId>
+      <version>${jackson-syntax-highlight.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${org.junit.jupiter.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <version>${org.junit.jupiter.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-launcher</artifactId>
+      <version>${org.junit.platform.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${org.assertj.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${ch.qos.logback.version}</version>
+      <scope>test</scope>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -52,8 +106,14 @@
   <properties>
     <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
     <maven.compiler.release>11</maven.compiler.release>
+    <ch.qos.logback.version>1.5.17</ch.qos.logback.version>
+    <com.fasterxml.jackson.version>2.18.3</com.fasterxml.jackson.version>
+    <snakeyaml-engine.version>2.9</snakeyaml-engine.version>
+    <jackson-syntax-highlight.version>1.1.0</jackson-syntax-highlight.version>
+    <org.junit.jupiter.version>5.12.0</org.junit.jupiter.version>
+    <org.junit.platform.version>1.12.0</org.junit.platform.version>
+    <org.assertj.version>3.27.3</org.assertj.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
-
 </project>

@@ -15,10 +15,10 @@ import java.util.stream.Collectors;
 import static java.util.stream.Collectors.toMap;
 
 /**
- * A simplest MOJO that says "Hello!" to {@link #helloTo} in maven-log.
+ * The simplest MOJO that says "Hello!" to {@link #helloTo} in maven-log and in generated output file.
  */
 @Mojo(name = "say-hello", requiresProject = false, defaultPhase = LifecyclePhase.NONE)
-public class HelloWorldMojo extends AbstractMojo {
+public class SayHelloMojo extends AbstractMojo {
 
     /**
      * A name to say "Hello!" to

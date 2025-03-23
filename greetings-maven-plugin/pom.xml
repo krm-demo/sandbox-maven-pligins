@@ -7,9 +7,9 @@
   <artifactId>greetings-maven-plugin</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
+
   <name>greetings-maven-plugin</name>
   <url>http://maven.apache.org</url>
-
   <organization>
     <name>krm-demo</name>
     <url>https://krm-demo.org/</url>
