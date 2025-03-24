@@ -21,42 +21,58 @@ import static java.util.stream.Collectors.toMap;
 public class SayHelloMojo extends AbstractMojo {
 
     /**
-     * A name to say "Hello!" to
+     * The name (the target person of greetings) to say "Hello!" to
      */
     @Parameter(property = "hello-to", defaultValue="World")
     String helloTo;
 
     /**
-     * Gives access to the Maven project information.
+     * The log-level of "Hello!" message which corresponds
+     * to enumeration {@link GreetingsLogLevel}
+     */
+    @Parameter(property = "log-level-hello", defaultValue="INFO")
+    GreetingsLogLevel logLevel;
+
+    /**
+     * the current maven-project and will be injected by maven itself.
      */
     @Parameter(defaultValue = "${project}", required = true, readonly = true)
     MavenProject project;
 
-    private MavenSession session;
+    /**
+     * This parameter can't be configured in the {@code pom.xml}.<hr/>
+     * It represents the current maven-session and will be injected by maven itself.
+     */
+    @Parameter(defaultValue = "${session}", readonly = true, required = true)
+    MavenSession session;
 
     /**
      * This parameter can't be configured in the {@code pom.xml}.
-     * It represents the Maven Session and will be injected by maven itself.
+     * It represents the execution of current mojo inside the maven-project.
+     * The mojo could be invoked multiple times and with different parameters.
      */
-    @Parameter(defaultValue = "${session}", readonly = true, required = true)
-    public void setSession(MavenSession session) {
-        this.session = session;
-    }
-
-    private MojoExecution mojoEx;
+    @Parameter(defaultValue = "${mojoExecution}", readonly = true, required = false)
+    MojoExecution mojoEx;
 
     @Override
+    @SuppressWarnings("unchecked")
     public void execute() {
+        System.out.println("logLevel = " + logLevel);
         getLog().info(String.format("Hello, %s!", helloTo));
         if (!session.getRequest().isProjectPresent()) {
             getLog().warn("not inside the maven-project");
         } else {
             getLog().info(String.format("inside the maven-project '%s'", project.getName()));
         }
+        System.out.printf("session.currentProject = '%s';%n", session.getCurrentProject());
+        System.out.printf("session.topLevelProject = '%s';%n", session.getTopLevelProject());
+        System.out.printf("allProjects.size = %d;%n", session.getAllProjects().size());
+        System.out.printf("projects.size = %d;%n", session.getProjects().size());
+
         System.out.println("session.systemProps:\n" + dumpProps(session.getSystemProperties()));
         System.out.println("session.userProps:\n" + dumpProps(session.getUserProperties()));
+
         System.out.println("plugin context:");
-        //noinspection unchecked
         getPluginContext().forEach((key, value) -> {
             System.out.printf("- '%s': %s --> %s;%n", key, value.getClass(), value);
         });

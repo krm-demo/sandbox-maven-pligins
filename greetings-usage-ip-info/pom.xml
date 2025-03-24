@@ -81,6 +81,7 @@
         <version>1.0-SNAPSHOT</version>
         <executions>
           <execution>
+            <phase>validate</phase>
             <goals>
               <goal>say-hello</goal>
             </goals>
