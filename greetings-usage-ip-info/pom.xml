@@ -81,9 +81,17 @@
         <version>1.0-SNAPSHOT</version>
         <executions>
           <execution>
+            <id>hello</id>
             <phase>validate</phase>
             <goals>
               <goal>say-hello</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>good-bye</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>say-good-bye</goal>
             </goals>
           </execution>
         </executions>

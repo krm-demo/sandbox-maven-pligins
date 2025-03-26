@@ -15,7 +15,9 @@ import java.util.stream.Collectors;
 import static java.util.stream.Collectors.toMap;
 
 /**
- * The simplest MOJO that says "Hello!" to {@link #helloTo} in maven-log and in generated output file.
+ * The simplest MOJO that says "Hello, World!" to {@link #helloTo} in maven-log
+ * or to standard-output and standard-error streams. The target name of greetings
+ * and the destination of output (log-level) is configured via mojo-properties.
  */
 @Mojo(name = "say-hello", requiresProject = false, defaultPhase = LifecyclePhase.NONE)
 public class SayHelloMojo extends AbstractMojo {
