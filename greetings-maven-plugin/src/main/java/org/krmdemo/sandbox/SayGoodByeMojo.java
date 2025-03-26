@@ -30,6 +30,6 @@ public class SayGoodByeMojo extends AbstractMojo {
     @Override
     public void execute() {
         System.out.println("logLevel = " + logLevel);
-        getLog().info(String.format(farewell));
+        logLevel.printMsg(getLog(), farewell);
     }
 }
